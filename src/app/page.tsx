@@ -1,11 +1,27 @@
-import Link from "next/link";
+import { Navbar } from "@/components/navbar"
+import { Hero } from "@/components/hero"
+import { SearchBar } from "@/components/search-bar"
+import { SubjectsGrid } from "@/components/subjects-grid"
+import { HowItWorks } from "@/components/how-it-works"
+import { FeaturedTutors } from "@/components/featured-tutors"
+import { WhyChooseUs } from "@/components/why-choose-us"
+import { Testimonials } from "@/components/testimonials"
+import { CtaSection } from "@/components/cta-section"
+import { Footer } from "@/components/footer"
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-4xl font-bold">Hello World 2</h1>
-      </div>
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <SearchBar />
+      <SubjectsGrid />
+      <HowItWorks />
+      <FeaturedTutors />
+      <WhyChooseUs />
+      <Testimonials />
+      <CtaSection />
+      <Footer />
     </main>
-  );
+  )
 }

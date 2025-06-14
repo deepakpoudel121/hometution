@@ -11,17 +11,21 @@ export default tseslint.config(
   {
     ignores: [".next"],
   },
+  // @ts-expect-error -- Type mismatch between ESLint and TypeScript-ESLint configs
   ...compat.extends("next/core-web-vitals"),
+  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   {
     files: ["**/*.ts", "**/*.tsx"],
     plugins: {
       drizzle,
     },
-    extends: [
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
-    ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
     rules: {
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
@@ -47,15 +51,8 @@ export default tseslint.config(
         { drizzleObjectName: ["db", "ctx.db"] },
       ],
     },
-  },
-  {
     linterOptions: {
       reportUnusedDisableDirectives: true,
-    },
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-      },
     },
   },
 );
